@@ -1,0 +1,1 @@
+因为授权问题自行编译了源代码，修改了serviceStack.text.dll

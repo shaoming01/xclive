@@ -1,0 +1,45 @@
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+*.vspx
+*.pidb
+*.svclog
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# DotCover / Code Coverage
+*.coverage
+*.coveragexml
+
+# ------------------------
+# Vite / Node.js / 前端
+# ------------------------
+# dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Vite build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.l
+/net/.run

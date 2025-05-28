@@ -1,0 +1,206 @@
+.ag-theme-balham .ag-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.ag-theme-balham .ag-row-odd {
+    background-color: #fff; /*偶数颜色去除*/
+}
+
+.ag-theme-balham .ag-row-hover {
+    background-color: #eaf2ff;
+}
+
+.ag-theme-balham .ag-row-selected {
+    background-color: #cde6f7;
+}
+
+.ag-theme-balham .ag-row-selected {
+    border-color: white;
+}
+
+.ag-theme-balham .ag-row-focus {
+    background: #ffe48d;
+}
+
+.ag-theme-balham .ag-row-focus.ag-row-selected,
+.ag-theme-balham .ag-row-focus.ag-row-selected.ag-row-hover {
+    background: #c6fcbe;
+}
+
+.ag-theme-balham .ag-row-hover.ag-row-selected {
+    background: #eaf2ff;
+}
+
+/*合计行列样式*/
+.ag-floating-bottom .number-cols {
+    visibility: hidden;
+}
+
+.ag-floating-bottom .checkbox-show {
+    width: 80px !important;
+    left: 0 !important;
+    text-align: center;
+    justify-content: center;
+}
+
+.ag-floating-bottom, .ag-floating-bottom .ag-row {
+    height: 30px !important;
+    min-height: 30px !important;
+}
+
+/*网格线*/
+.ag-theme-balham .ag-ltr .ag-cell {
+    border-right: 1px dotted #ddd;
+}
+
+.ag-theme-balham .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), .ag-theme-balham .ag-ltr .ag-cell-range-single-cell, .ag-theme-balham .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle, .ag-theme-balham .ag-rtl .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), .ag-theme-balham .ag-rtl .ag-cell-range-single-cell, .ag-theme-balham .ag-rtl .ag-cell-range-single-cell.ag-cell-range-handle {
+    border-right: 1px solid #0091ea;
+}
+
+/*筛选排序之后的图标标个蓝什么的，弄显眼点*/
+.ag-header-cell-label .ag-icon-filter, .ag-header-cell-label .ag-icon-asc, .ag-header-cell-label .ag-icon-desc {
+    color: #08c;
+}
+
+/*字段名称的网格线弄成一根整线，现在是半根线*/
+.ag-theme-balham .ag-header-cell::after, .ag-theme-balham .ag-header-group-cell::after {
+    top: 0;
+    height: 100%;
+}
+
+/*详改字*/
+.floatBtn {
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    line-height: 15px;
+    text-align: center;
+    padding: 2px;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    background: #08c;
+    border-radius: 100%;
+}
+
+.ag-row-focus .floatBtn, .ag-row:hover .floatBtn {
+    display: block;
+}
+
+.ag-theme-balham .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), .ag-theme-balham .ag-ltr .ag-cell-range-single-cell, .ag-theme-balham .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle, .ag-theme-balham .ag-rtl .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected), .ag-theme-balham .ag-rtl .ag-cell-range-single-cell, .ag-theme-balham .ag-rtl .ag-cell-range-single-cell.ag-cell-range-handle {
+    border-right-style: solid;
+}
+
+/*仅筛选此项伪类样式*/
+.ag-check-one:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #7ab950;
+    border-left: 12px solid transparent;
+    position: absolute;
+    left: -12px;
+    bottom: 0;
+}
+
+.ag-check-one:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 12px solid #7ab950;
+    border-left: 12px solid transparent;
+    position: absolute;
+    left: -12px;
+    top: 0;
+}
+
+.ag-virtual-list-item:hover {
+    background: #e6e6e6;
+}
+
+.ag-virtual-list-item:hover .ag-check-one {
+    display: block !important;
+}
+
+.ag-cell input {
+    color: #333 !important;
+}
+
+
+
+.more-box {
+    border-radius: 50% !important;
+    border: 1px solid #ccc;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    color: red;
+    text-align: center;
+    line-height: 26px;
+    margin-top: 1px;
+}
+
+/*表格内容垂直居中*/
+.ag-cell {
+    display: flex;
+    align-items: center; /*垂直居中*/
+}
+
+
+/*表格中的Tip*/
+.custom-tooltip {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    border: 1px solid cornflowerblue;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 1s;
+    background-color: white;
+}
+
+.custom-tooltip.ag-tooltip-hiding {
+    opacity: 0;
+}
+
+.custom-tooltip p {
+    margin: 5px;
+    word-break: break-all;
+}
+
+/* aggrid 列头菜单 调整大小扩展样式 */
+.resized .ag-menu-body {
+    height: calc(100% - 30px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.resized .ag-filter, .resized .ag-filter-wrapper, .resized .ag-set-filter, .resized .ag-menu-column-select-wrapper, .resized .ag-menu-column-select {
+    height: 100%;
+}
+
+.resized .ag-filter-body-wrapper {
+    height: calc(100% - 37px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.resized .ag-set-filter-list, .ag-column-select-list {
+    height: calc(100% - 32px) !important;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.hide-ag-menu .ag-menu {
+    display: none !important;
+}
+
+/* aggrid 列头菜单 调整大小扩展样式 */

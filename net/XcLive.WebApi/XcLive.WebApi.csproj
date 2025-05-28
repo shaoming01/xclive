@@ -1,0 +1,139 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InternalsVisibleTo>SchemaBuilder.Test</InternalsVisibleTo>
+        <RootNamespace>SchemaBuilder.Web</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="log4net" Version="3.0.1"/>
+        <PackageReference Include="Mapster" Version="7.4.1-pre01"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="wwwroot\docs\doc.json"/>
+        <_ContentIncludedByDefault Remove="wwwroot\public\favicon.ico"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\api\billApi.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\api\Dtos\Dtos.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\api\pageApi.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\api\userApi.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\App.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\appConfig.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\aggrid\ag-grid-enterprise.min.noStyle.js"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\aggrid\ag-grid.min.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\aggrid\ag-theme-balham-add.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\aggrid\ag-theme-balham.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\loading.gif"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\assets\logo.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\DataBrowser.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\LoadingBtn.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\ModalEditor.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\ObjectEditor.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\SearchContainer.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\SearchToolBar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\base\ToolBar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Dialog.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\formItems\BoolInput.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\formItems\StringInput.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Grid\DetailTables.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Grid\FullTable.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\FlexLayout.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\FlexLayoutContent.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\FlexLayoutFooter.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\FlexLayoutHeader.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\SearchGroup.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\SplitLayout.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\layout\SplitPane.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Loading.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\MenuPanel.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Scrollbar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\searchItems\StringSearch.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\Shadow.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\components\SvgIcon.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\composables\isMobile.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\composables\ModalEditorHelper.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\composables\SearchCondition.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\composables\sharedComposable.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\composables\useIcon.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\env.d.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\interfaces\Interfaces.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\layout\BreadCrumb.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\layout\HeadBar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\layout\index.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\layout\SideBar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\layout\TabsBar.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\main.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\permission.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\router\index.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\stores\sidebar.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\stores\user.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\ag-grid.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\ag-theme-balham-add.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\ag-theme-balham.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\index.scss"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\splitpanes.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\_animation.scss"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\_antd.scss"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\_transition.scss"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\styles\_variables.scss"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\svgs\deleteRight.svg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\svgs\earth.svg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\apiHelper.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\ext.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\fileAction.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\index.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\msg.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\R.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\utils\request.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\404.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\components\Earth.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\components\Keyboard.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\components\Line.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\earth.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\images\earth\bathymetry.jpg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\images\earth\clouds.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\images\earth\earth.jpg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\images\earth\night.jpg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\images\earth\starfield.jpg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\keyboard.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\charts\line.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\dashboard.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\layoutFuncs.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\login.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\modal.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\pages\browserTest.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\pages\comTest.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\pages\editorTest.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\pages\SubCom.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\redirect.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\route\dynamicMenu.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\src\views\route\dynamicRoute.vue"/>
+        <_ContentIncludedByDefault Remove="wwwroot\mock\browserDataHelper.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\mock\index.ts"/>
+        <_ContentIncludedByDefault Remove="wwwroot\scripts\generateDocs.js"/>
+        <_ContentIncludedByDefault Remove="wwwroot\scripts\generateVueComponents.js"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\XcLive.Svc\XcLive.Svc.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="ServiceStack.Interfaces">
+            <HintPath>..\lib\ServiceStack.Interfaces.dll</HintPath>
+        </Reference>
+        <Reference Include="ServiceStack.OrmLite">
+            <HintPath>..\lib\ServiceStack.OrmLite.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="data\" />
+    </ItemGroup>
+
+</Project>
