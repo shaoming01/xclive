@@ -53,7 +53,7 @@ public static class ApiConfigHelper
                 // 这里可以自定义返回的错误信息
                 var errors = context.ModelState
                     .Where(e => e.Value?.Errors.Count > 0)
-                    .Select(e => new { Field = e.Key, Message = Enumerable.First(e.Value.Errors).ErrorMessage })
+                    .Select(e => new { Field = e.Key, Message = e.Value!.Errors.First().ErrorMessage })
                     .ToArray();
                 var errStr = string.Join(",", errors.Select(e => e.Field + ": " + e.Message));
                 // 返回 HTTP 200，并包含错误信息
@@ -88,7 +88,7 @@ public class UniversalEnumConverterFactory : JsonConverterFactory
     public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
     {
         var converterType = typeof(UniversalEnumConverter<>).MakeGenericType(typeToConvert);
-        return (JsonConverter)Activator.CreateInstance(converterType);
+        return (JsonConverter)Activator.CreateInstance(converterType)!;
     }
 
     private class UniversalEnumConverter<T> : JsonConverter<T> where T : Enum

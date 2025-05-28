@@ -73,6 +73,7 @@ declare global {
   const onServerPrefetch: typeof import('vue')['onServerPrefetch']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
+  const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const provide: typeof import('vue')['provide']
   const randomPick: typeof import('./src/utils/index')['randomPick']
   const reactive: typeof import('vue')['reactive']
@@ -96,11 +97,14 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useId: typeof import('vue')['useId']
   const useLink: typeof import('vue-router')['useLink']
+  const useModel: typeof import('vue')['useModel']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSchemaBuilder: typeof import('./src/composables/useSchemaBuilder')['useSchemaBuilder']
   const useSlots: typeof import('vue')['useSlots']
+  const useTemplateRef: typeof import('vue')['useTemplateRef']
   const vueComDoc: typeof import('./src/utils/vueComDoc')['vueComDoc']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -110,11 +114,50 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
-  export type { Component, ComponentPublicInstance, ComputedRef, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, VNode, WritableComputedRef } from 'vue'
+  export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
-  export type { DateSelectType } from './src/utils/editFiledHelper'
+  export type { R } from './src/utils/R'
+  import('./src/utils/R')
+  // @ts-ignore
+  export type { agGridColumnUtil } from './src/utils/agGridColumnUtil'
+  import('./src/utils/agGridColumnUtil')
+  // @ts-ignore
+  export type { agGridSelectionUtil } from './src/utils/agGridSelectionUtil'
+  import('./src/utils/agGridSelectionUtil')
+  // @ts-ignore
+  export type { agGridSetFilterExt } from './src/utils/agGridSetFilterExt'
+  import('./src/utils/agGridSetFilterExt')
+  // @ts-ignore
+  export type { agGridValueGetterExt } from './src/utils/agGridValueGetterExt'
+  import('./src/utils/agGridValueGetterExt')
+  // @ts-ignore
+  export type { apiHelper } from './src/utils/apiHelper'
+  import('./src/utils/apiHelper')
+  // @ts-ignore
+  export type { comUtil } from './src/utils/com'
+  import('./src/utils/com')
+  // @ts-ignore
+  export type { editFiledHelper, DateSelectType } from './src/utils/editFiledHelper'
   import('./src/utils/editFiledHelper')
+  // @ts-ignore
+  export type { ext } from './src/utils/ext'
+  import('./src/utils/ext')
+  // @ts-ignore
+  export type { InputState } from './src/utils/inputState'
+  import('./src/utils/inputState')
+  // @ts-ignore
+  export type { memCache } from './src/utils/memCache'
+  import('./src/utils/memCache')
+  // @ts-ignore
+  export type { modalUtil } from './src/utils/modalUtil'
+  import('./src/utils/modalUtil')
+  // @ts-ignore
+  export type { msg } from './src/utils/msg'
+  import('./src/utils/msg')
+  // @ts-ignore
+  export type { tableOptionsHelper } from './src/utils/tableOptionsHelper'
+  import('./src/utils/tableOptionsHelper')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -189,6 +232,7 @@ declare module 'vue' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly randomPick: UnwrapRef<typeof import('./src/utils/index')['randomPick']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
@@ -212,11 +256,14 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useId: UnwrapRef<typeof import('vue')['useId']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
+    readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSchemaBuilder: UnwrapRef<typeof import('./src/composables/useSchemaBuilder')['useSchemaBuilder']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly vueComDoc: UnwrapRef<typeof import('./src/utils/vueComDoc')['vueComDoc']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>

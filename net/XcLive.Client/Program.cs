@@ -16,10 +16,7 @@ namespace Frame
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            if (InitializeForm.CheckBefore() || new InitializeForm().ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new MainFrame());
-            }
+            Application.Run(new MainFrame());
         }
 
         // 处理 UI 线程中的未处理异常

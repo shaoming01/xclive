@@ -21,6 +21,6 @@ public static class HttpRequestExt
             token = urlToken.First();
         }
 
-        return UserSvc.GetLoginUser(token);
+        return UserSvc.GetLoginUser(token!);
     }
 }

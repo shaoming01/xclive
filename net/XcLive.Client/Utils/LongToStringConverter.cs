@@ -7,14 +7,15 @@ public class LongToStringConverter : JsonConverter
         return objectType == typeof(long);
     }
 
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
-        writer.WriteValue(value.ToString());
+        writer.WriteValue(value?.ToString());
     }
 
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    public override object ReadJson(JsonReader reader, Type objectType, object? existingValue,
+        JsonSerializer serializer)
     {
-        return long.Parse(reader.Value.ToString());
+        return long.Parse(reader.Value?.ToString() ?? "");
     }
 }
 
@@ -25,18 +26,19 @@ public class SimpleNullableLongToStringConverter : JsonConverter
         return objectType == typeof(long?);
     }
 
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
         writer.WriteValue(value?.ToString());
     }
 
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue,
+        JsonSerializer serializer)
     {
         if (reader.Value == null)
         {
             return null;
         }
 
-        return long.Parse(reader.Value.ToString());
+        return long.Parse(reader.Value?.ToString() ?? "");
     }
 }

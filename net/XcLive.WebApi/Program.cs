@@ -43,16 +43,3 @@ app.UseCors("AllowSpecificOrigin");
 app.MapControllers();
 
 app.Run();
-
-namespace SchemaBuilder
-{
-    public static class TestEntrance
-    {
-        public static void Main()
-        {
-            var builder = WebApplication.CreateBuilder();
-            ApiConfigHelper.Init(builder);
-
-        }
-    }
-}

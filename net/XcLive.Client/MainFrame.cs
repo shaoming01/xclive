@@ -53,7 +53,8 @@ public partial class MainFrame : BorderLessForm
 
     private void Ini()
     {
-        Icon = new Icon("res/star.ico");
+        var iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "res/star.ico");
+        Icon = new Icon(iconPath);
         Task.Factory.StartNew(() =>
         {
             try

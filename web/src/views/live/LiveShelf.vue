@@ -15,11 +15,10 @@ import {
 import _ from "lodash";
 import {IByAccountAuthVm, IDyAccountAuthVm, ILiveAccount} from "@/views/live/help/LiveInterface";
 import {modalUtil} from "@/utils/modalUtil";
-import HuangcheSelect from "@/views/live/com/HuangcheSelect.vue";
 import {IQueryParam} from "@/types/dto";
 import ShelfTaskRun from "@/views/live/com/ShelfTaskRun.vue";
 import {accountHelper} from "@/views/live/help/accountHelper";
-import {ByApi, IByProduct, IByProductResp} from "@/views/live/help/ByApi";
+import {ByApi, IByProduct} from "@/views/live/help/ByApi";
 
 
 const observerAccountId = ref('');
