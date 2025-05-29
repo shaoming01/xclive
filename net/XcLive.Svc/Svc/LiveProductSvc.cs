@@ -3,12 +3,35 @@ using SchemaBuilder.Svc.Core;
 using SchemaBuilder.Svc.Core.Ext;
 using SchemaBuilder.Svc.Helpers;
 using SchemaBuilder.Svc.Models.Table;
+using ServiceStack;
 using ServiceStack.OrmLite;
 
 namespace SchemaBuilder.Svc.Svc;
 
 public class LiveProductSvc
 {
+    public static R<string> GetLiveAccountProductDescription(long liveAccountId)
+    {
+        using var db = Db.Open();
+        var re = R.OK("");
+        var pros = db.Select<LiveAccountProduct>(p => p.LiveAccountId == liveAccountId);
+        var textList = pros?.Select(pro =>
+        {
+            var r = GetProductDescription(pro.Id);
+            if (!r.Success)
+            {
+                re.Success = false;
+                re.Message = r.Message;
+                return "";
+            }
+
+            return r.Data;
+        }).ToList();
+        var text = string.Join("\n", textList ?? new List<string>());
+        re.Data = text;
+        return re;
+    }
+
     public static R<string> GetProductDescription(long liveAccountProductId)
     {
         using var db = Db.Open();
@@ -154,13 +177,37 @@ public class LiveProductSvc
 
         var summaryText =
             $"商品名称：{product.ProductName};价格：{priceText};消费保障：{string.Join(",", safetyContent)};优惠活动：{string.Join(",", rewardContent)};物流：{string.Join(",", logisticsContent)};标签：{string.Join(",", tags)};商品属性：{string.Join(",", productAttr)};主图描述：{mainText.Data};详情图描述：{detailText.Data};";
+        var simpleRe = SimpleText(summaryText);
+        if (!simpleRe.Success)
+        {
+            return R.Faild<string>(simpleRe.Message);
+        }
 
-        return R.OK(summaryText);
+        return R.OK(simpleRe.Data);
+    }
+
+    private static R<string> SimpleText(string summaryText)
+    {
+        using var db = Db.Open();
+        var model = db.Select<ModelAuthInfo>().FirstOrDefault();
+        if (model == null)
+        {
+            return R.Faild<string>("model不能为空");
+        }
+
+        var sysText = "你是一个文案处理专员，请整理以下方案，同时过滤掉无效的、重复的内容。";
+        var promptRe = ModelApiHelper.TextPrompt(model, sysText, summaryText);
+        if (!promptRe.Success)
+        {
+            return R.Faild<string>(promptRe.Message);
+        }
+
+        return R.OK(promptRe.Data);
     }
 
     private static R<string> GetImageText(string productProductName, List<string> detailImgList)
     {
-        var groupSplitCount = 20;
+        var groupSplitCount = 5;
         using var db = Db.Open();
         var model = db.Select<ModelAuthInfo>().FirstOrDefault();
         if (model == null)

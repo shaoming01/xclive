@@ -205,13 +205,15 @@ public class LiveScriptSvc
             return R.Faild("请输入用户消息");
         }
 
+        var proText = liveRoom.PersonaText + liveRoom.PromotionText + "";
+
         // 生成系统提示
         var systemText = LiveScriptTemplateSvc.BuildText(template.Usage, true, template.SystemTemplate ?? "",
             liveRoom.PersonaText ?? "",
-            liveRoom.ProductText ?? "", script.GuestMessage ?? "");
+            proText, script.GuestMessage ?? "");
         var userText = LiveScriptTemplateSvc.BuildText(template.Usage, false, template.UserTemplate ?? "",
             liveRoom.PersonaText ?? "",
-            liveRoom.ProductText ?? "", script.GuestMessage ?? "");
+            proText, script.GuestMessage ?? "");
 
 
         var promptRe = ModelApiHelper.TextPrompt(model, systemText, userText);

@@ -16,4 +16,5 @@ public class LiveAccountProduct : ITable, IUserId, ITenantId
     public string? ProductId { get; set; }
     public string? ImgUrl { get; set; }
     public string? ProductJson { get; set; }
+    public string? AnalyzeResult { get; set; }
 }

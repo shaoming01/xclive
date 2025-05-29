@@ -19,7 +19,10 @@ const productTable: IFullTableSchema = {
     }
   },
     {field: 'productName', headerName: '商品名称', width: 180},
-    {field: 'productId', headerName: '商品Id', width: 150},
+    {field: 'productId', headerName: '商品Id', width: 60},
+    {
+      field: 'analyzeResult', headerName: '解析结果', width: 60
+    },
   ],
   rowData: [],
 }
@@ -33,6 +36,9 @@ let productText_Source = '';
 const personaText = ref('');
 let personaText_Source = '';
 const operateIdRef = ref('');
+let promotionText_Source = '';
+const promotionText = ref('');
+
 
 async function iniData() {
   const rRe = await apiHelper.request<ILiveRoomVm[]>('/api/LiveRoom/LiveRoomQueryList', undefined, {});
@@ -43,6 +49,9 @@ async function iniData() {
 
     personaText_Source = rRe.data[0].personaText;
     personaText.value = personaText_Source;
+
+    promotionText_Source = rRe.data[0].promotionText;
+    promotionText.value = promotionText_Source;
   }
 
 }
@@ -67,8 +76,6 @@ async function addProduct() {
     if (!saveRe.success) return R.error(saveRe.message);
   }
   await refreshProduct();
-  msg.success('添加成功')
-
 }
 
 async function delProduct() {
@@ -193,24 +200,27 @@ async function refreshProduct() {
   const list = rRe.data ?? [];
   if (productTableRef.value)
     productTableRef.value.rowData = list;
-
+  promotionText.value = list.map(l => l.analyzeResult).join('\n');
+  await liveRoomChanged();
 }
 
 watch(() => operateIdRef.value, refreshProduct, {immediate: true})
 
 async function liveRoomChanged() {
-  if (productText_Source == productText.value && personaText.value == personaText_Source) {
+  if (productText_Source == productText.value && personaText.value == personaText_Source && promotionText.value == promotionText_Source) {
     return;
   }
   const
       saveRe = await apiHelper.request('/api/LiveRoom/SaveDefault', undefined, {
         productText: productText.value,
+        promotionText: promotionText.value,
         personaText: personaText.value,
       });
   if (!saveRe.success) return msg.error(saveRe.message);
   productText_Source = productText.value
   personaText_Source = personaText.value
-  msg.success('直播间描述保存成功');
+  promotionText_Source = promotionText.value
+  msg.success('直播间信息保存成功');
 }
 
 
@@ -220,6 +230,7 @@ interface ILiveRoomVm {
   id: string;
   name: string;
   productText: string;
+  promotionText: string;
   personaText: string;
 }
 
@@ -230,6 +241,7 @@ interface ILiveAccountProductVm {
   productId?: string;
   imgUrl?: string;
   productJson?: string;
+  analyzeResult?: string;
 }
 
 </script>
@@ -296,7 +308,7 @@ interface ILiveAccountProductVm {
                       </ATooltip>
                     </ACol>
                     <ACol>
-                      <AButton type="default" @click="addProduct">添加</AButton>
+                      <LoadingBtn type="default" @click="addProduct">添加</LoadingBtn>
                     </ACol>
                     <ACol>
                       <AButton type="default" @click="delProduct">删除</AButton>

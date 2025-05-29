@@ -15,6 +15,11 @@ public class LiveRoom : ITable, IUserId, ITenantId
     public string? ProductText { get; set; }
 
     /// <summary>
+    /// 根据添加进来的主讲商品分析得到的
+    /// </summary>
+    public string? PromotionText { get; set; }
+
+    /// <summary>
     /// 角色个性描述，限制要求等
     /// </summary>
     public string? PersonaText { get; set; }

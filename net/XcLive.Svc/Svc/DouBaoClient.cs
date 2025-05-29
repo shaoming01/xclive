@@ -103,7 +103,7 @@ public class DouBaoClient
     {
         _apiBaseUrl = apiBaseUrl;
         _apiKey = apiKey;
-        _httpClient = new HttpClient();
+        _httpClient = new HttpClient() { Timeout = TimeSpan.FromMinutes(3) };
         _httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + _apiKey);
     }
 

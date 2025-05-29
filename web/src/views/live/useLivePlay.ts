@@ -111,7 +111,7 @@ export function useLivePlay(observerId: Ref<string>, roomInfo: Ref<IWebRoomInfo 
     })
 
     async function getNewScript(): Promise<R> {
-        var req = {aiVerticalAnchorId: aiVerticalAnchor.value, chatText: ""};
+        const req = {aiVerticalAnchorId: aiVerticalAnchor.value, chatText: ""};
         const newScriptRe = await apiHelper.request<ILiveScriptVoiceDetailVm[]>('api/LiveScript/BuildAiVerticalAnchorScript', req);
         if (!newScriptRe.success) return R.error(newScriptRe.message);
         const newArr: ILiveScriptVoiceDetailVm[] = newScriptRe.data ?? [];

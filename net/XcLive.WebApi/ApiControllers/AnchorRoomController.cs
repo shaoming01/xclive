@@ -91,6 +91,7 @@ public class LiveRoomController : ControllerBase
                 UserId = user.UserId,
                 TenantId = user.TenantId,
                 ProductText = vm.ProductText,
+                PromotionText = vm.PromotionText,
                 PersonaText = vm.PersonaText,
                 Id = Id.NewId(),
                 Name = vm.Name,
@@ -101,6 +102,7 @@ public class LiveRoomController : ControllerBase
         {
             room.Name = "默认";
             room.ProductText = vm.ProductText;
+            room.PromotionText = vm.PromotionText;
             room.PersonaText = vm.PersonaText;
             db.Update(room);
         }

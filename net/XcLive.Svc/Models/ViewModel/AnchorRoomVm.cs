@@ -32,6 +32,7 @@ public class LiveRoomVm
     [TableColumn("Id")] public long Id { get; set; }
     [TableColumn("房间名称")] public string? Name { get; set; }
     [TableColumn("直播间描述")] public string? ProductText { get; set; }
+    [TableColumn("商品描述")] public string? PromotionText { get; set; }
     [TableColumn("个性描述")] public string? PersonaText { get; set; }
 }
 
@@ -46,6 +47,9 @@ public class LiveRoomEditVm
 
     [FieldEditor("直播间描述", Offset = 0, Span = 24, Rows = 5, LabelColSpan = 3, WrapperColSpan = 21)]
     public string? ProductText { get; set; }
+
+    [FieldEditor("商品描述", Offset = 0, Span = 24, Rows = 5, LabelColSpan = 3, WrapperColSpan = 21)]
+    public string? PromotionText { get; set; }
 
     [FieldEditor("个性描述", Offset = 0, Span = 24, Rows = 5, LabelColSpan = 3, WrapperColSpan = 21)]
     public string? PersonaText { get; set; }

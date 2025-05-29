@@ -48,6 +48,7 @@ public class LiveAccountProductVm
     public string? ImgUrl { get; set; }
 
     public string? ProductJson { get; set; }
+    public string? AnalyzeResult { get; set; }
 }
 
 [ModalObjectEditor(nameof(LiveAccountProductEditVm) + "_ModalObjectEditor", "直播账号编辑",
@@ -71,6 +72,7 @@ public class LiveAccountProductEditVm
 
     [FieldEditor("ProductJson", Offset = 0, Span = 24)]
     public string? ProductJson { get; set; }
+    public string? AnalyzeResult { get; set; }
 
     public string? ImgUrl { get; set; }
 

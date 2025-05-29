@@ -59,6 +59,15 @@ public class LiveAccountProductController : ControllerBase
         {
             model.Id = Id.NewId();
             db.Insert(model);
+            var analyzeRe = LiveProductSvc.GetProductDescription(model.Id);
+            if (!analyzeRe.Success)
+            {
+                db.Delete(model);
+                return R.Faild<LiveAccountProductEditVm>(analyzeRe.Message);
+            }
+
+            model.AnalyzeResult = analyzeRe.Data;
+            db.Update(model);
         }
         else
         {
@@ -77,5 +86,11 @@ public class LiveAccountProductController : ControllerBase
         db.Delete<LiveAccountProduct>(x =>
             idList.Contains(x.Id) && x.UserId == user.UserId && x.TenantId == user.TenantId);
         return R.OK();
+    }
+
+    [HttpGet, HttpPost]
+    public R<string> AnalyzeLiveProductDescription(long liveAccountId)
+    {
+        return LiveProductSvc.GetLiveAccountProductDescription(liveAccountId);
     }
 }
