@@ -1,9 +1,56 @@
 # 星晨AI无人直播开源
 
-#### 介绍
+## 介绍
 星晨AI无人直播开源，提供全自动直播技术方案，涵盖AI主播、内容生成、互动管理等，助力建设高效直播生态。
+## 技术特点
+### 基础框架
+ - 前端：vite，ts，vue，antd，ag-grid 
+ - 后端：.net webapi ormlite autoquery
+ - 客户端：Winform+Cefsharp
+### 技术要点
+#### 抖音弹幕抓取
+- 抖音弹幕签名算法（外部API）
 
-#### 使用说明
+#### 百应后台商品信息抓取
+- abogus算法（外部API）
+
+####  winform应用防抓包
+- cefsharp防抓包
+- 网页应用包装成客户端应用
+#### cefsharp基础使用
+- js和winform交互通信
+#### winform无边框
+- 实现位置拖动
+- 实现调整大小
+- 实现双击调整窗口大小
+#### 音频播放队列
+- 停顿时插队播放
+- 普通插队播放
+- 列表播放
+
+## 启动说明
+**后端是.net写的，IDE建议直接使用Rider，前端后端都能编辑。**先用Rider打开.net解决方案，然后将web目录作为文件夹加进来。
+效果如下：
+![](img/0.1.jpg)
+![](img/0.2.jpg)
+**前端启动：** 
+```
+# 安装依赖
+yarn
+# 启动前端
+npm run dev
+```
+如果没有安装yarn也可以直接使用npm install，效果是一样的
+```
+npm install
+npm run dev
+```
+如果对前端不熟悉可以使用Rider自动识别前端package.json
+![](img/0.3.jpg)
+
+
+
+## 使用说明
 
 ### 1，这是软件入口
 ![这是软件入口](img/1.jpg)
